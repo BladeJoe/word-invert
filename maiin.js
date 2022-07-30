@@ -1,15 +1,22 @@
-let elInput = document.querySelector(".input")
-let elOutput = document.querySelector(".output")
-let abc = ["a", "b", "c", "d", "e", "f", "g", "j", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", ]
+let elInputInvert = document.querySelector(".inputInvert")
+let elOutputInvert = document.querySelector(".outputInvert")
+let elInputLower = document.querySelector(".inputUpper")
+let elOutputLower = document.querySelector(".outputUpper")
+let elInputUpper = document.querySelector(".inputLower")
+let elOutputUpper = document.querySelector(".outputLower")
 
-elInput.addEventListener("input", function () {
 
-    swapcase(elInput.value.split(""))
+elInputInvert.addEventListener("input", function () {
+    invertcase(elInputInvert.value.split(""))
+})
+elInputUpper.addEventListener("input", function () {
+    toLowercase(elInputUpper.value.split(""))
+})
+elInputLower.addEventListener("input", function () {
+    toUppercase(elInputLower.value.split(""))
 })
 
-
-
-function swapcase(splittedInput) {
+function invertcase(splittedInput) {
     for (var i = 0; i < splittedInput.length; i++) {
         if (splittedInput[i] === splittedInput[i].toLowerCase()) {
             splittedInput[i] = splittedInput[i].toUpperCase();
@@ -17,5 +24,23 @@ function swapcase(splittedInput) {
             splittedInput[i] = splittedInput[i].toLowerCase();
         }
     }
-    elOutput.textContent = splittedInput.join("");
+    elOutputInvert.textContent = splittedInput.join("");
+}
+
+
+function toUppercase(splittedInput) {
+    for (var i = 0; i < splittedInput.length; i++) {
+        splittedInput[i] = splittedInput[i].toUpperCase();
+    }
+
+    elOutputLower.textContent = splittedInput.join("");
+}
+
+
+
+function toLowercase(splittedInput) {
+    for (var i = 0; i < splittedInput.length; i++) {
+        splittedInput[i] = splittedInput[i].toLowerCase()
+    }
+    elOutputUpper.textContent = splittedInput.join("");
 }
